@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app= "formulario">
 <title>Formulario Estudiantes</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -8,126 +8,129 @@ body,h1,h2,h3,h4,h5, option, label, .btn-home,.btn-links {font-family: "Raleway"
 </style>
 <body>
 
-  <h1 align="center">Ficha de alumno</h1>
+  <div ng-controller = "formController">
+    <h1 align="center">Ficha de alumno</h1>
 
-  <h2>Datos Generales</h2>
+    <h2>Datos Generales</h2>
 
-  <form>
-    <p class = "row-1">
-      <label for="apellidoPaterno">Apellido Paterno: </label>
-      <input type="text" name= "apellido1" id="apellidoPaterno" placeholder="Apellido Paterno" required>
-      <label for="apellidoMaterno">Apellido Materno: </label>
-      <input type="text" name = "apellido2" id = "apellidoMaterno" placeholder="Apellido Materno" required>
-      <label for="nombres">Nombre(s): </label>
-      <input type="text" name= "nombres" id="nombres" placeholder="Nombre(s)" required>
-    </p>
+    <form>
+      <p class = "row-1">
+        <label for="apellidoPaterno">Apellido Paterno: </label>
+        <input type="text" name= "apellido1" id="apellidoPaterno" placeholder="Apellido Paterno" required ng-model = "nuevoRegistro.apellidoPaterno">
+        <label for="apellidoMaterno">Apellido Materno: </label>
+        <input type="text" name = "apellido2" id = "apellidoMaterno" placeholder="Apellido Materno" required ng-model = "nuevoRegistro.apellidoMaterno">
+        <label for="nombres">Nombre(s): </label>
+        <input type="text" name= "nombres" id="nombres" placeholder="Nombre(s)" required ng-model = "nuevoRegistro.nombres">
+      </p>
 
-    <p>
-      <label for="escuelaProcedencia">Escuela de procedencia: 
-      </label>
-      <input type="text" name= "escuelaProcedencia" id = "escuelaProcedencia" placeholder="Escuela de Procedencia" required>
-      <label for="licenciatura">Licenciatura: </label>
-      <select name="licenciatura" id="licenciatura">
-        <option>Educación Inicial</option>
-        <option>Educación Preescolar</option>
-        <option>Educación Primaria</option>
-        <option>Educación Física</option>
-        <option>Educación Secundaria (Telesecundaria)</option>
-        <option>Educación Especial en el Área Intelectual</option>
-        <option>Educación Primaria Intercultural Bilingüe</option>
-        <option>Educación Secundaria (Español)</option>
-        <option>Educación Secundaria (Matemáticas)</option>
-        <option>Educación Secundaria (Historia)</option>
-        <option>Educación Secundaria (Formación Cívica y Ética)</option>
-        <option>Educación Secundaria (Biología)</option>
-        <option>Educación Secundaria (Física)</option>
-        <option>Educación Secundaria (Química)</option>
-        <option>Educación Secundaria (Inglés)</option>
-      </select>
-    </p>
-    
-    <p>
-      <label for="fechaNacimiento">Fecha de Nacimiento: </label>
-      <select>
-        <option>01</option>
-        <option>02</option>
-        <option>03</option>
-        <option>04</option>
-        <option>05</option>
-        <option>06</option>
-        <option>07</option>
-        <option>08</option>
-        <option>09</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-        <option>17</option>
-        <option>18</option>
-        <option>19</option>
-        <option>20</option>
-        <option>21</option>
-        <option>22</option>
-        <option>23</option>
-        <option>24</option>
-        <option>25</option>
-        <option>26</option>
-        <option>27</option>
-        <option>28</option>
-        <option>29</option>
-        <option>30</option>
-        <option>31</option>
-      </select>
-      <select>
-        <option>Enero</option>
-        <option>Febrero</option>
-        <option>Marzo</option>
-        <option>Abril</option>
-        <option>Mayo</option>
-        <option>Junio</option>
-        <option>Julio</option>
-        <option>Agosto</option>
-        <option>Septiembre</option>
-        <option>Octubre</option>
-        <option>Noviembre</option>
-        <option>Diciembre</option>
-      </select>
-      <select>
-        <option>1994</option>
-        <option>1995</option>
-        <option>1996</option>
-        <option>1997</option>
-        <option>1998</option>
-        <option>1999</option>
-        <option>2000</option>
-        <option>2001</option>
-      </select>
-    </p>
+      <p>
+        <label for="escuelaProcedencia">Escuela de procedencia: 
+        </label>
+        <input type="text" name= "escuelaProcedencia" id = "escuelaProcedencia" placeholder="Escuela de Procedencia" required>
+        <label for="licenciatura">Licenciatura: </label>
+        <select name="licenciatura" id="licenciatura" ng-model = "nuevoRegistro.licenciatura">
+          <option>Educación Inicial</option>
+          <option>Educación Preescolar</option>
+          <option>Educación Primaria</option>
+          <option>Educación Física</option>
+          <option>Educación Secundaria (Telesecundaria)</option>
+          <option>Educación Especial en el Área Intelectual</option>
+          <option>Educación Primaria Intercultural Bilingüe</option>
+          <option>Educación Secundaria (Español)</option>
+          <option>Educación Secundaria (Matemáticas)</option>
+          <option>Educación Secundaria (Historia)</option>
+          <option>Educación Secundaria (Formación Cívica y Ética)</option>
+          <option>Educación Secundaria (Biología)</option>
+          <option>Educación Secundaria (Física)</option>
+          <option>Educación Secundaria (Química)</option>
+          <option>Educación Secundaria (Inglés)</option>
+        </select>
+      </p>
       
+      <p>
+        <label for="fechaNacimiento">Fecha de Nacimiento: </label>
+        <select ng-model = "nuevoRegistro.fechaNacimiento">
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        <select>
+          <option>Enero</option>
+          <option>Febrero</option>
+          <option>Marzo</option>
+          <option>Abril</option>
+          <option>Mayo</option>
+          <option>Junio</option>
+          <option>Julio</option>
+          <option>Agosto</option>
+          <option>Septiembre</option>
+          <option>Octubre</option>
+          <option>Noviembre</option>
+          <option>Diciembre</option>
+        </select>
+        <select>
+          <option>1994</option>
+          <option>1995</option>
+          <option>1996</option>
+          <option>1997</option>
+          <option>1998</option>
+          <option>1999</option>
+          <option>2000</option>
+          <option>2001</option>
+        </select>
+      </p>
+        
+        <label for="promedio">Promedio: </label>
+        <input type="number" name = "promedio" id="promedio" placeholder="Promedio" required ng-model = "nuevoRegistro.promedio">
+        
+      </p>
 
-
-
-
-
-
-      <label for="promedio">Promedio: </label>
-      <input type="number" name = "promedio" id="promedio" placeholder="Promedio" required>
+      <p>
+        <label for="tel">Teléfono: </label>
+        <input type="number" name = "tel" id="tel" placeholder="Teléfono" required ng-model = "nuevoRegistro.telefono">
+        <label for="email">Correo Electrónico: </label>
+        <input type="email" name = "email" id="email" placeholder="Correo Electrónico" required ng-model = "nuevoRegistro.mail">
+      </p>
       
-    </p>
-
-    <p>
-      <label for="tel">Teléfono: </label>
-      <input type="number" name = "tel" id="tel" placeholder="Teléfono" required>
-      <label for="email">Correo Electrónico: </label>
-      <input type="email" name = "email" id="email" placeholder="Correo Electrónico" required>
-    </p>
+      <p><input type="submit" ng-click = "demo()"></p>
+    </form>
     
-    <p><input type="submit"></p>
-  </form>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-animate.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    
+
+  </div>
 
 
 </body>
