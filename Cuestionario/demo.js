@@ -1,5 +1,5 @@
 
-var print = console.log;
+var licenciaturas = ['Educación Inicial', 'Educación Preescolar', 'Educación Primaria', 'Educación Primaria Intercultural Bilingüe', 'Educación Especial en el Área Intelectual', 'Educación Secundaria (Telesecundaria)', 'Educación Secundaria (Español)', 'Educación Secundaria (Química)', 'Educación Secundaria (Física)', 'Educación Secundaria (Inglés)', 'Educación Secundaria (Educ. Cívica y Ética)', 'Educación Secundaria (Historia)', 'Educación Secundaria (Matemáticas)', 'Educación Secundaria (Biología)',];
 
 var arregloClualquiera = [1,2,3,4,5,6,7,8,9];
 
