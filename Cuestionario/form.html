@@ -7,7 +7,7 @@
 
   <span class="md-display-1" layout-align = "center center">Ficha de Alumno</span>
   <md-card ng-controller = "formController" ng-cloak>
-    <md-tabs md-dynamic-height md-border-bottom>
+    <md-tabs md-dynamic-height md-border-bottom ng-cloak md-selected = "tabIndex">
       <md-tab label="Datos Generales">
 
         <md-card-title>
@@ -92,8 +92,22 @@
 
           <span class="md-subhead">Tipo Sanguíneo</span>
           <div layout="row" layout-margin>
-            ///////Selector de tipo sanguíneo
-          </div>    
+            <md-radio-group ng-model ="nuevoRegistro.tipoSanguineo">
+              <md-radio-button value="a+">A+</md-radio-button>
+              <md-radio-button value="a-">A-</md-radio-button>
+              <md-radio-button value="b+">B+</md-radio-button>
+              <md-radio-button value="b-">B-</md-radio-button>
+              <md-radio-button value="ab+">AB+</md-radio-button>
+              <md-radio-button value="ab-">AB-</md-radio-button>
+              <md-radio-button value="o+">O+</md-radio-button>
+              <md-radio-button value="o-">O-</md-radio-button>
+            </md-radio-group>
+          </div>
+
+
+          <md-button type="button" ng-click = "nextTab()">Siguiente</md-button>
+
+
     </md-card-content>
         </md-tab>
 
@@ -147,6 +161,8 @@
           </md-input-container>
         </div>
       </md-card-content>
+
+      <md-button type="button" ng-click = "nextTab()">Siguiente</md-button>
           
         </md-tab>
 
@@ -179,7 +195,7 @@
         <span class ="md-subhead">¿Consideras que tu promedio es reflejo de lo que has aprendido?</span>
 
         <div class ="md-subhead">
-          <md-radio-group ng-model ="promediosn23">
+          <md-radio-group ng-model ="nuevoRegistro.promediosn23">
             <md-radio-button value="si">Sí</md-radio-button>
             <md-radio-button value="no">No</md-radio-button>
           </md-radio-group>
@@ -232,7 +248,13 @@
         </div>
 
     </md-card-content>
+
+    <md-button type="button" ng-click = "nextTab()">Siguiente</md-button>
+
         </md-tab>
+
+
+
         <md-tab label ="Personal y Familiar">
           <md-card-title>
       <md-card-title-text>
@@ -282,7 +304,11 @@
         </div>
 
       </md-card-content>
+
+      <md-button type="submit" ng-click = "guardarDB()">Guardar</md-button>
         </md-tab>
+
+
       </md-tabs>
   </md-card>
 
