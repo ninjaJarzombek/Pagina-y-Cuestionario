@@ -1,11 +1,21 @@
 // MODULE
 var formulario = angular.module('formulario',['ngAria','ngMaterial', 'ngMessages' ]);
 
-formulario.controller('formController', function ($scope) {
+formulario.controller('formController', function ($scope, $window) {
 
 	this.myDate = new Date;
 	this.isOpen = false;
 
+	$scope.tabIndex;
+
+	$scope.nextTab = function()
+	{
+
+		$window.scrollTo(0, 0);
+		$scope.tabIndex = $scope.tabIndex +1;
+	}
+
+	
 	$scope.nuevoRegistro = {};
 
 	$scope.nuevoRegistro.apellidoPaterno = "";
@@ -20,6 +30,9 @@ formulario.controller('formController', function ($scope) {
 	$scope.nuevoRegistro.mail = "";
 	$scope.nuevoRegistro.face = "";
 	$scope.nuevoRegistro.twitter = "";
+	$scope.nuevoRegistro.tipoSanguineo = "";
+
+
 	$scope.nuevoRegistro.respuesta11 = "";
 	$scope.nuevoRegistro.respuesta12 = "";
 	$scope.nuevoRegistro.respuesta13 = "";
@@ -43,6 +56,7 @@ formulario.controller('formController', function ($scope) {
 	$scope.nuevoRegistro.respuesta33 = "";
 	$scope.nuevoRegistro.respuesta34 = "";
 
+	$scope.submit = function(){}
 
 	$scope.demo = function(){
 		console.log("El objeto hasta el momento es: ",$scope.nuevoRegistro);
