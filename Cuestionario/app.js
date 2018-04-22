@@ -6,6 +6,9 @@ formulario.controller('formController', function ($scope, $window) {
 	this.myDate = new Date;
 	this.isOpen = false;
 
+	$scope.xmlHttp = new XMLHttpRequest();
+
+
 	$scope.tabIndex;
 
 	$scope.nextTab = function()
@@ -56,12 +59,39 @@ formulario.controller('formController', function ($scope, $window) {
 	$scope.nuevoRegistro.respuesta33 = "";
 	$scope.nuevoRegistro.respuesta34 = "";
 
-	$scope.submit = function(){}
+	$scope.submit = function(){
+
+		var valoresEnviar = $scope.everythingToUpperCase($scope.nuevoRegistro);
+
+		console.log("LOS VALORES CAPTURADOS EN EL OBJETO SON: ",valoresEnviar);
+
+		$scope.xmlHttp.open("GET","http://localhost:5001/insertStudent?nuevosValores="+JSON.stringify(valoresEnviar),true);
+		$scope.xmlHttp.send(null);
+
+	}
+
+
+	$scope.everythingToUpperCase = function(valor){
+
+		var llaves = Object.keys(valor);
+
+		llaves.forEach(function(key){
+
+			if(typeof(valor[key]) === "string"){
+				valor[key] = valor[key].toUpperCase();
+			}
+		})
+
+		return valor;
+
+	}
 
 	$scope.demo = function(){
 		console.log("El objeto hasta el momento es: ",$scope.nuevoRegistro);
 
 	}
+
+
 
 });
 
