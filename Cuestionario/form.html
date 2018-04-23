@@ -20,8 +20,12 @@
 
         <md-card-content>
           <md-divider></md-divider>
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** NOMBRE Y APELLIDOS ************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
+
           <div layout ="row"><span class = "md-subhead">Nombre y Apellidos: </span></div>
-        
           <div layout = "row" layout-margin>
             <md-input-container>
             
@@ -41,6 +45,12 @@
             </md-input-container>
           </div>
 
+
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** FECHA DE NACIMIENTO ************************************************************************************************* -->
+<!-- ************************************************************************************************************************* -->
+
           <span class ="md-subhead">Fecha de Nacimiento: </span>
           <div layout = "row" layout-margin>
             <md-input-container>
@@ -53,14 +63,72 @@
             </md-input-container>
            </div>
 
+<!-- ************************************************************************************************************************* -->
+<!-- *** LUGAR DE ORIGEN ***************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
+
+          <span class ="md-subhead">¿Cuál es tu lugar de procedencia?</span>
+          <div layout ="row" layout-margin>
+            <md-input-container>
+              <label>Origen</label>
+              <md-select ng-model = "nuevoRegistro.respuesta11">
+                <md-option ng-value ="state.abreviacion" ng-repeat="state in estados">{{ state.nombre }}</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** TIPO SANGUINEO ****************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
+
+          <span class="md-subhead">Género</span>
+          <div layout="row" layout-margin>
+            <md-radio-group ng-model ="nuevoRegistro.tipoSanguineo">
+              <md-radio-button value="H">H (Hombre)</md-radio-button>
+              <md-radio-button value="M">M (Mujer)</md-radio-button>
+            </md-radio-group>
+          </div>
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** CURP **************************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
+
+          <div layout ="row"><span class = "md-subhead">CURP: </span></div>
+        
+          <div layout = "row" layout-margin>
+            
+            <md-input-container>
+            
+              <label>CURP</label>
+              <input type="text" name="CURP" required ng-model = "nuevoRegistro.CURP">
+            </md-input-container>
+
+          </div>
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** ESCUELA NORMAL Y LICENCIATURA *************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
+
           <span class ="md-subhead">Escuela Normal y Licenciatura: </span>
           <div layout ="row" layout-margin>
-          
-          ////////////Falta el selector de licenciaturas
+          <md-input-container>
+            <label>Escuela Normal:</label>
+            <md-select ng-model = "nuevoRegistro.normalObjeto" ng-change = "cambioDeNormal()">
+              <md-option ng-value ="escuela" ng-repeat="escuela in escuelasNormales">{{ escuela.nombre }}</md-option>
+            </md-select>
+          </md-input-container>
 
-          
-          ///////Selector de Normales
+          <md-input-container>
+            <label>Licenciatura:</label>
+            <md-select ng-model = "nuevoRegistro.licenciatura">
+              <md-option ng-value ="lic" ng-repeat="lic in nuevoRegistro.normal.licenciaturas">{{ lic }}</md-option>
+            </md-select>
+          </md-input-container>
           </div>
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** TELEFONOS *********************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
 
           <span class="md-subhead">Teléfonos: </span>
           <div layout="row" layout-margin>
@@ -73,6 +141,11 @@
               <input type="text" name="telefonoCelular" required ng-model="nuevoRegistro.telefonoCelular">
            </md-input-container>
           </div>
+
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** MAIL Y REDES SOCIALES *********************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
 
           <span class="md-subhead">Mail y Redes Sociales</span>
           <div layout ="row" layout-margin>
@@ -89,6 +162,11 @@
               <input type="text" name="twitter" required ng-model="nuevoRegistro.twitter">
             </md-input-container>
           </div>
+
+
+<!-- ************************************************************************************************************************* -->
+<!-- *** TIPO SANGUINEO ****************************************************************************************************** -->
+<!-- ************************************************************************************************************************* -->
 
           <span class="md-subhead">Tipo Sanguíneo</span>
           <div layout="row" layout-margin>
@@ -121,13 +199,6 @@
 
       <md-card-content>
         <md-divider></md-divider>
-        <span class ="md-subhead">¿Cuál es tu lugar de procedencia?</span>
-        <div layout ="row" layout-margin>
-          <md-input-container>
-            <label>Respuesta</label>
-            <input type="text" name="respuesta11" required ng-model="nuevoRegistro.respuesta11">
-          </md-input-container>
-        </div>
         <span class ="md-subhead">¿Cuál es tu dirección actual?</span>
         <div layout ="row" layout-margin>
           <md-input-container>
@@ -305,7 +376,7 @@
 
       </md-card-content>
 
-      <md-button type="submit" ng-click = "submit()">Guardar</md-button>
+      <md-button class ="md-primary md-raised" type="submit" ng-click = "showAdvanced($event)">Guardar</md-button>
         </md-tab>
 
 
@@ -317,6 +388,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.8/angular-material.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-animate.js"></script>
+    <script type="text/javascript" src="curp.js"></script>
 
     <script type="text/javascript" src="app.js"></script>
 </body>
